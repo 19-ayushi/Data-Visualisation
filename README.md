@@ -9,7 +9,7 @@ Display bar charts and doughnut charts for visualizing air pollution data
 Responsive design to adapt to various screen sizes for a better user experience
 
 ### Installation
-Clone the repository
+Clone the repository. \
 Get an API key from Mappls and insert it in {API_TOKEN} placeholder in 'home.html' page.
 Open 'home.html'
 
