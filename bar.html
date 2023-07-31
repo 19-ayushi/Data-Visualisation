@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>City Pollution Levels</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Air Pollution Dashboard</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="home.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="bar.html">Bar Graph</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="doughnut.html">Doughnut Graph</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div style="width: 80%; margin: auto;">
+        <canvas id="pollutionChart"></canvas>
+    </div>
+
+    <script>
+        const cities = ['Mumbai', 'Kolkata', 'Bangalore', 'Chennai', 'Hyderabad','Ahmedabad','Vishakhapatnam','Bhopal','Delhi'];
+        const pollutionLevels = [112, 110, 62, 107, 137,64,123,90,145];
+
+        const ctx = document.getElementById('pollutionChart').getContext('2d');
+        const pollutionChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: cities,
+                datasets: [{
+                    label: 'Pollution Level',
+                    data: pollutionLevels,
+                    backgroundColor: 'rgba(54, 162, 235, 0.8)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

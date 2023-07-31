@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Air Pollution</title>
+<meta name="viewport" content="initial-scale=1.0">
+<meta charset="utf-8">
+<style>
+html,
+body,
+#map {
+        position: center;
+        top: 10;
+        bottom: 10;
+        left: 10;
+        right: 10;
+        height: 80vh;
+        
+      }
+
+    /* Reset some default styles */
+
+/* Style the h3 tag */
+h6 {
+  font-size: 24px; /* Adjust the font size as needed */
+  text-align: center; /* Center the h3 tag */
+  margin: 20px 0; /* Add margin to separate the map and h3 tag */
+}
+
+
+</style>
+    <script src="https://apis.mappls.com/advancedmaps/api/eb915ef7091b62c6382ec96557858e3f/map_sdk?v=3.0&layer=vector"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Air Pollution Dashboard</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="home.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="bar.html">Bar Graph</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="doughnut.html">Doughnut Graph</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Rest of your webpage content goes here -->
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+   <h6> The map shows the pollution levels in some major cities of India.</h6>
+
+<div id="map"></div>       
+<script>
+var map;
+
+map = new mappls.Map('map', {
+    center: [28.61, 77.23],
+    zoomControl: true,
+    location: true
+});
+
+map.addListener('load', function() {
+    var geoData = {
+        "type": "FeatureCollection",
+        "features": [{
+            "type": "Feature",
+            "properties": {
+                "htmlPopup": "Mumbai: 112"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [19.0761,72.8775]
+            }
+        }, {
+            "type": "Feature",
+            "properties": {
+                "htmlPopup": "Kolkata: 110"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [22.5675,88.37]
+            }
+        }, {
+            "type": "Feature",
+            "properties": {
+                "htmlPopup": "Bangalore: 62"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [12.9789,77.5917]
+            }
+        },{
+            "type": "Feature",
+            "properties": {
+                "htmlPopup": "Chennai: 107"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [13.0825,80.275]
+            }
+        }, {
+            "type": "Feature",
+            "properties": {
+                "htmlPopup": "Hyderabad: 137"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [17.385,78.4867]
+            }
+        }, {
+            "type": "Feature",
+            "properties": {
+                "htmlPopup": "Ahmedabad: 64"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [23.03,72.58]
+            }
+        },{
+            "type": "Feature",
+            "properties": {
+                "htmlPopup": "Vishakhapatnam: 123"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [17.7042,83.2978]
+            }
+        }, {
+            "type": "Feature",
+            "properties": {
+                "htmlPopup": "Bhopal:90"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [23.25,77.4167]
+            }
+        }, {
+            "type": "Feature",
+            "properties": {
+                "htmlPopup": "Delhi: 145"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [28.549511, 77.2678250]
+            }
+
+        }]
+    };
+    var marker = new mappls.Marker({
+        map: map,
+        position: geoData,
+        fitbounds: true,
+        clusters: false,
+        fitboundOptions: {
+            padding: 120,
+            duration: 1000
+        },
+        popupOptions: {
+            offset: {
+                'bottom': [0, -20]
+            }
+        }
+    });
+});
+
+</script>
+
+</body>
+</html>
+
+
+
+

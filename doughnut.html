@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Doughnut Chart Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.chart-container {
+  max-width: 800px;  
+  margin: auto;
+  height: 80vh; 
+  width: 80%; 
+  text-align: center;
+}
+</style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Air Pollution Dashboard</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="home.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="bar.html">Bar Graph</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="doughnut.html">Doughnut Graph</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="chart-container">
+        <canvas id="doughnutChart"></canvas>
+    </div>
+
+    <script>
+        const categories = ['Mumbai', 'Kolkata', 'Bangalore', 'Chennai', 'Hyderabad','Ahmedabad','Vishakhapatnam','Bhopal','Delhi'];
+        const data = [112, 110, 62, 107, 137,64,123,90,145]; // Example data for each category
+
+        const ctx = document.getElementById('doughnutChart').getContext('2d');
+        const doughnutChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: categories,
+                datasets: [{
+                    data: data,
+                    backgroundColor: ['#FF6384',
+                '#36A2EB',
+                '#FFCE56',
+                '#4BC0C0',
+                '#9966FF',
+                '#FF9F40',
+                '#3CB371',
+                '#FF00FF',
+                '#808080'],
+                    borderColor: 'rgba(255, 255, 255, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                cutout: '70%', // Adjust the size of the hole in the center
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top', // You can change the position to 'top', 'left', or 'right'
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
