@@ -6,18 +6,18 @@ This is a data visualization project that aims to visualize air pollution data f
 ## Features
 Display the cities on the Indian Map along with their corresponding pollution levels on the pop-up.\
 Display bar charts and doughnut charts for visualizing air pollution data.\
-Responsive design to adapt to various screen sizes for a better user experience.\
+Responsive design to adapt to various screen sizes for a better user experience.
 
 ### Installation
 Clone the repository. \
 Get an API key from Mappls and insert it in {API_TOKEN} placeholder in 'home.html' page. \
-Run 'home.html'. \
+Run 'home.html'. 
 
 ### Data
-The project uses sample air pollution data for demonstration purposes. \
+The project uses sample air pollution data for demonstration purposes. 
 
 ### Libraries and Frameworks
 Chart.js: https://www.chartjs.org/ \
 MapmyIndia: https://about.mappls.com/api/ \
-BootStrap: https://getbootstrap.com/ \
+BootStrap: https://getbootstrap.com/ 
 
