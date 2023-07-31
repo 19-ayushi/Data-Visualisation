@@ -52,6 +52,10 @@
         const categories = ['Mumbai', 'Kolkata', 'Bangalore', 'Chennai', 'Hyderabad','Ahmedabad','Vishakhapatnam','Bhopal','Delhi'];
         const data = [112, 110, 62, 107, 137,64,123,90,145]; // Example data for each category
 
+        if (categories.length === 0 || data.length === 0 || categories.length!=data.length) {
+            const errorMessage = "Error: Insufficient data to create the bar chart.";
+            document.body.innerHTML = `<h3 style="color: red; text-align: center;">${errorMessage}</h3>`;
+        } else {
         const ctx = document.getElementById('doughnutChart').getContext('2d');
         const doughnutChart = new Chart(ctx, {
             type: 'doughnut',
@@ -82,6 +86,7 @@
                 }
             }
         });
+    }
     </script>
 </body>
 </html>

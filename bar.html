@@ -45,6 +45,10 @@
         const cities = ['Mumbai', 'Kolkata', 'Bangalore', 'Chennai', 'Hyderabad','Ahmedabad','Vishakhapatnam','Bhopal','Delhi'];
         const pollutionLevels = [112, 110, 62, 107, 137,64,123,90,145];
 
+        if (cities.length === 0 || pollutionLevels.length === 0 || cities.length!=pollutionLevels.length) {
+            const errorMessage = "Error: Insufficient data to create the bar chart.";
+            document.body.innerHTML = `<h3 style="color: red; text-align: center;">${errorMessage}</h3>`;
+        } else {
         const ctx = document.getElementById('pollutionChart').getContext('2d');
         const pollutionChart = new Chart(ctx, {
             type: 'bar',
@@ -66,6 +70,7 @@
                 }
             }
         });
+    }
     </script>
 </body>
 </html>
